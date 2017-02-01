@@ -1,13 +1,13 @@
 #pragma once
 #include "PuntoMedio.h"
 #include "ofMain.h"
-
+#include "PutPixel.h"
 
 
 class ofApp : public ofBaseApp{
 
 	public:
-
+		//PutPixel pixel;
 		PuntoMedio line;
 
 		void setup();

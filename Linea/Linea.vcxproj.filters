@@ -10,6 +10,9 @@
     <ClCompile Include="src\PuntoMedio.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\PutPixel.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -21,6 +24,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\PuntoMedio.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PutPixel.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
