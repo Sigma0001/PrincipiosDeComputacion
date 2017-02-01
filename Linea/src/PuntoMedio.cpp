@@ -21,8 +21,7 @@ void PuntoMedio::drawLine(int x1, int y1, int x2, int y2) {
 	y = y1;
 	x = x1;
 
-	//ofSetColor(0, 255, 0);
-
+	
 
 	if (y2 >= y1 && x2 >= x1)
 	{
@@ -32,7 +31,7 @@ void PuntoMedio::drawLine(int x1, int y1, int x2, int y2) {
 			for (int x = x1; x <= x2; x++)
 			{
 				pixel.putpixel(x, y, ofColor::green);
-			//	ofCircle(x, y, 1);
+			
 				if (dOld > 0) {
 					dOld = dOld + dy - dx;
 					y++;
@@ -46,7 +45,7 @@ void PuntoMedio::drawLine(int x1, int y1, int x2, int y2) {
 			for (int y = y1; y <= y2; y++)
 			{
 				pixel.putpixel(x, y, ofColor::green);
-				//ofCircle(x, y, 1);
+				
 				if (dOld > 0)
 				{
 					dOld = dOld + dx - dy;
@@ -64,7 +63,7 @@ void PuntoMedio::drawLine(int x1, int y1, int x2, int y2) {
 			for (int y = y1; y <= y2; y++)
 			{
 				pixel.putpixel(x, y, ofColor::green);
-				//ofCircle(x, y, 1);
+				
 				if (dOld < 0)
 				{
 					dOld = dOld + dx - dy * -1;
@@ -79,7 +78,7 @@ void PuntoMedio::drawLine(int x1, int y1, int x2, int y2) {
 			for (int x = x1; x >= x2; x--)
 			{
 				pixel.putpixel(x, y, ofColor::green);
-				//ofCircle(x, y, 1);
+				
 				if (dOld < 0)
 				{
 					dOld = dOld - dy - dx;
@@ -96,7 +95,7 @@ void PuntoMedio::drawLine(int x1, int y1, int x2, int y2) {
 			for (int x = x1; x >= x2; x--)
 			{
 				pixel.putpixel(x, y, ofColor::green);
-				//ofCircle(x, y, 1);
+				
 				if (dOld < 0)
 				{
 					dOld = dOld + dy - dx;
@@ -111,7 +110,7 @@ void PuntoMedio::drawLine(int x1, int y1, int x2, int y2) {
 			for (int y = y1; y >= y2; y--)
 			{
 				pixel.putpixel(x, y, ofColor::green);
-				//ofCircle(x, y, 1);
+				
 				if (dOld < 0)
 				{
 					dOld = dOld + dx - dy;
@@ -129,7 +128,7 @@ void PuntoMedio::drawLine(int x1, int y1, int x2, int y2) {
 			for (int y = y1; y >= y2; y--)
 			{
 				pixel.putpixel(x, y, ofColor::green);
-				//ofCircle(x, y, 1);
+				
 				if (dOld > 0)
 				{
 					dOld = dOld + dx - dy*-1;
@@ -144,7 +143,7 @@ void PuntoMedio::drawLine(int x1, int y1, int x2, int y2) {
 			for (int x = x1; x <= x2; x++)
 			{
 				pixel.putpixel(x, y, ofColor::green);
-				//ofCircle(x, y, 1);
+				
 				if (dOld > 0)
 				{
 					dOld = dOld - dy - dx;
