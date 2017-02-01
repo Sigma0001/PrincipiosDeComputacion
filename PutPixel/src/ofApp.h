@@ -1,6 +1,6 @@
 #pragma once
+#include "PutPixel.h"
 
-#include "ofMain.h"
 
 class ofApp : public ofBaseApp{
 
@@ -8,9 +8,8 @@ class ofApp : public ofBaseApp{
 		void setup();
 		void update();
 		void draw();
-		void putpixel(const int& x, const int& y, const ofColor& color);
-		void clear(const ofColor& color);
-		void Framebuffer(const int& x, const int& y, const ofColor& color);
+
+		PutPixel pixel;
 
 		void keyPressed(int key);
 		void keyReleased(int key);
@@ -23,8 +22,5 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-private:
-		ofImage _img;
-		void FASTputpixel(const int& x, const int& y, const ofColor& color);
 		
 };

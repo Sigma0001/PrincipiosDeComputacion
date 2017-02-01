@@ -1,11 +1,12 @@
 #include "ofApp.h"
+//#include "PutPixel.h"
 
 //--------------------------------------------------------------
 void ofApp::setup(){
 	
-	_img.allocate(1024, 768, ofImageType::OF_IMAGE_COLOR_ALPHA);
+	pixel._img.allocate(1024, 768, ofImageType::OF_IMAGE_COLOR_ALPHA);
 	
-	clear(ofColor::black);
+	pixel.clear(ofColor::black);
 }
 
 //--------------------------------------------------------------
@@ -17,8 +18,8 @@ void ofApp::update(){
 void ofApp::draw(){
 	
 	for (int x = 0; x < 1024; ++x)
-		//putpixel(x, 768 / 2, ofColor::green);
-		Framebuffer(x, 768 / 2, ofColor::green);
+		pixel.putpixel(x, 768 / 2, ofColor::green);
+		
 }
 
 //--------------------------------------------------------------
@@ -74,40 +75,4 @@ void ofApp::gotMessage(ofMessage msg){
 //--------------------------------------------------------------
 void ofApp::dragEvent(ofDragInfo dragInfo){ 
 
-}
-
-//--------------------------------------------------------------
-void ofApp::putpixel(const int& x, const int& y, const ofColor& color)
-{
-	_img.setColor(x, y, color);	
-	_img.update();
-	_img.draw(ofPoint(0, 0, 0));
-}
-
-//--------------------------------------------------------------
-
-void ofApp::FASTputpixel(const int& x, const int& y, const ofColor& color)
-{
-	_img.setColor(x, y, color);
-}
-
-//--------------------------------------------------------------
-
-void ofApp::clear(const ofColor& color)
-{
-	for (int y = 0; y < 768; ++y)
-		for (int x = 0; x < 1024; ++x)
-			FASTputpixel(x, y, color);
-
-	_img.update();
-	_img.draw(ofPoint(0, 0, 0));
-}
-
-//--------------------------------------------------------------
-
-void ofApp::Framebuffer(const int & x, const int & y, const ofColor & color)
-{
-	putpixel(x, y, color);
-	//clear(ofColor::black);
-	
 }

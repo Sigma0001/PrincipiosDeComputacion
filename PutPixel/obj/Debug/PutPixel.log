@@ -1,4 +1,7 @@
-﻿  ofApp.cpp
+﻿  main.cpp
+  ofApp.cpp
+  PutPixel.cpp
+     Creating library bin\PutPixel_debug.lib and object bin\PutPixel_debug.exp
   PutPixel.vcxproj -> C:\of_v0.9.3_vs_release\apps\myApps\PutPixel\bin\PutPixel_debug.exe
   PutPixel.vcxproj -> bin\PutPixel_debug.pdb (Full PDB)
   
