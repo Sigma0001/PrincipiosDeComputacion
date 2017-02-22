@@ -12,20 +12,19 @@ Vec3::Vec3() :
 	{
 	}*/
 
-/*	Vec3 & Vec3::operator+(const Vec3 & rh)
+	/*Vec3 & Vec3::operator+(const Vec3 & rh)
 	{
-		// TODO: insertar una instrucción return aquí
+		return Vec3(x+rh.x, y+rh.y, z+rh.z);
 	
 	}*/
 
 	Vec3 Vec3::midpoint(const Vec3 & p0, const Vec3 & p1)
 	{
-		return Vec3();
-			(p0.x + p1.x) * (0.2f);
-			(p0.y + p1.y) * (0.2f);
-			(p0.z + p1.z) * (0.2f);
-			
-			
+		Vec3 p2;
+			p2.x =(p0.x + p1.x) / (2.0f);
+			p2.y = (p0.y + p1.y) / (2.0f);
+			p2.z = (p0.z + p1.z) / (2.0f);
+			return Vec3(p2);
 	}
 
 	

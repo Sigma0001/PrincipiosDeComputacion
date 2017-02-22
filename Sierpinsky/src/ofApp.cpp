@@ -14,6 +14,11 @@ void ofApp::setup(){
 	cX = ofGetScreenWidth();
 	cY = ofGetScreenHeight();
 
+	T1 = { 200.0f , 650.0f , 0.0f };
+	T2 = { 800.0f , 650.0f , 0.0f };
+	T3 = { 500.0f , 100.0f , 0.0f };
+
+
 
 }
 
@@ -26,10 +31,8 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 
-
+	SGasket(T1,T2,T3,5);
 }
-	
-
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
@@ -112,11 +115,19 @@ void ofApp::poligon(const float cX, const float cY, const int radius, const int 
 }
 
 //--------------------------------------------------------------
+void ofApp::triangle(const Vec3 & a, const Vec3 & b, const Vec3 & c) {
+	moveTo(a.x, a.y);
+	lineTo(b.x, b.y);
+	lineTo(c.x, c.y);
+	lineTo(a.x, a.y);
+}
+
+//--------------------------------------------------------------
 void ofApp::SGasket(const Vec3 & a, const Vec3 & b, const Vec3 & c, const int & level)
 {
 	if (level == 0)
 	{
-		poligon(cX,cY,100,3);
+		triangle(a, b, c);
 	}
 	else
 	{
@@ -124,8 +135,8 @@ void ofApp::SGasket(const Vec3 & a, const Vec3 & b, const Vec3 & c, const int & 
 		Vec3 bc = mid.midpoint(b, c);
 		Vec3 ca = mid.midpoint(c, a);
 
-		SGasket(a,ab,ca,level-1);
-		SGasket(ab, b, bc, level - 1);
-		SGasket(ca, bc, c, level - 1);
+		SGasket( a,	ab, ca, level - 1);
+		SGasket(ab,  b, bc, level - 1);
+		SGasket(ca, bc,  c, level - 1);
 	}
 }

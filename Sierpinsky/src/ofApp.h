@@ -33,8 +33,11 @@ class ofApp : public ofBaseApp{
 
 		ofVec2f cp;
 		float cX, cY;
+		Vec3 T1,T2,T3;
 		void moveTo(const int x, const int y);
 		void lineTo(const int x, const int y);
 		void poligon(const float cX, const float cY, const int radius, const int sides);
+
+		void triangle(const Vec3 & a, const Vec3 & b, const Vec3 & c);
 	
 };
