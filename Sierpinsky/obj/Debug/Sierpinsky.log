@@ -1,0 +1,8 @@
+﻿  Vec3.cpp
+src\Vec3.cpp(24): warning C4552: '*': el operador no tiene efecto; se esperaba un operador con efecto secundario
+src\Vec3.cpp(25): warning C4552: '*': el operador no tiene efecto; se esperaba un operador con efecto secundario
+src\Vec3.cpp(26): warning C4552: '*': el operador no tiene efecto; se esperaba un operador con efecto secundario
+  Sierpinsky.vcxproj -> C:\Users\rocag\OneDrive\Documents\of_v0.9.8_vs_release\apps\myApps\Cervs_1\Sierpinsky\bin\Sierpinsky_debug.exe
+  Sierpinsky.vcxproj -> bin\Sierpinsky_debug.pdb (Full PDB)
+  
+  	                   9	C:\Users\rocag\OneDrive\Documents\of_v0.9.8_vs_release\export\vs\Win32\
