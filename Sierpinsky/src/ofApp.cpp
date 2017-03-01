@@ -7,10 +7,9 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 	
+
 	line.NewClear();
 
-	//cX = 1024 / 2;
-	//cY = 768 / 2;
 	cX = ofGetScreenWidth();
 	cY = ofGetScreenHeight();
 
@@ -18,9 +17,9 @@ void ofApp::setup(){
 	T2 = { 800.0f , 650.0f , 0.0f };
 	T3 = { 500.0f , 100.0f , 0.0f };
 
+	level = 5;
 
-
-	SGasket(T1, T2, T3, 5);
+	SGasket(T1, T2, T3, level);
 
 }
 
@@ -33,8 +32,12 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 
-	//SGasket(T1, T2, T3, 5);
-	triangle(Va,Vb,Vc);
+	
+	for (int j = 0; j < vect.size(); j+=3)
+	{
+		triangle(vect[j], vect[j+1], vect[j+2]);
+	}
+	
  
 }
 
@@ -128,12 +131,16 @@ void ofApp::triangle(const Vec3 & a, const Vec3 & b, const Vec3 & c) {
 
 //--------------------------------------------------------------
 
-Vec3 ofApp::SGasket(const Vec3 & a, const Vec3 & b, const Vec3 & c, const int & level)
+void ofApp::SGasket(const Vec3 & a, const Vec3 & b, const Vec3 & c, const int & level)
 {
 
 	if (level == 0)
 	{
-		triangle(a, b, c);
+		//triangle(a, b, c);
+
+		vect.push_back(a);
+		vect.push_back(b);
+		vect.push_back(c);
 	}
 	else
 	{
@@ -141,29 +148,10 @@ Vec3 ofApp::SGasket(const Vec3 & a, const Vec3 & b, const Vec3 & c, const int & 
 		Vec3 bc = mid.midpoint(b, c);
 		Vec3 ca = mid.midpoint(c, a);
 
-		Va = SGasket(a, ab, ca, level - 1);
-		Vb = SGasket(ab, b, bc, level - 1);
-		Vc = SGasket(ca, bc, c, level - 1);
+	    SGasket(a, ab, ca, level - 1);
+	    SGasket(ab, b, bc, level - 1);
+	    SGasket(ca, bc, c, level - 1);
 	}
 
-	return (Va,Vb,Vc);
+	
 }
-
-/*void ofApp::SGasket(const Vec3 & a, const Vec3 & b, const Vec3 & c, const int & level)
-{
-	if (level == 0)
-	{
-		triangle(a, b, c);
-	}
-	else
-	{
-		Vec3 ab = mid.midpoint(a, b);
-		Vec3 bc = mid.midpoint(b, c);
-		Vec3 ca = mid.midpoint(c, a);
-
-		SGasket( a,	ab, ca, level - 1);
-		SGasket(ab,  b, bc, level - 1);
-		SGasket(ca, bc,  c, level - 1);
-	}
-
-}*/

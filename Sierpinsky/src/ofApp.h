@@ -13,7 +13,7 @@ class ofApp : public ofBaseApp{
 		PuntoMedio line;
 		Vec3 mid;
 
-		Vec3 Va, Vb, Vc;
+		std::vector<Vec3> vect;
 
 		void setup();
 		void update();
@@ -31,15 +31,12 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
-		//void SGasket(const Vec3&a, const Vec3&b, const Vec3&c, const int& level);
-
-		Vec3 SGasket(const Vec3&a, const Vec3&b, const Vec3&c, const int& level);
-
-		
+		void SGasket(const Vec3&a, const Vec3&b, const Vec3&c, const int& level);
 
 		ofVec2f cp;
 		float cX, cY;
 		Vec3 T1,T2,T3;
+		int level;
 		void moveTo(const int x, const int y);
 		void lineTo(const int x, const int y);
 		void poligon(const float cX, const float cY, const int radius, const int sides);
