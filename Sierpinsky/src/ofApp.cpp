@@ -20,6 +20,8 @@ void ofApp::setup(){
 
 
 
+	SGasket(T1, T2, T3, 5);
+
 }
 
 //--------------------------------------------------------------
@@ -31,7 +33,9 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 
-	SGasket(T1,T2,T3,5);
+	//SGasket(T1, T2, T3, 5);
+	triangle(Va,Vb,Vc);
+ 
 }
 
 //--------------------------------------------------------------
@@ -123,7 +127,29 @@ void ofApp::triangle(const Vec3 & a, const Vec3 & b, const Vec3 & c) {
 }
 
 //--------------------------------------------------------------
-void ofApp::SGasket(const Vec3 & a, const Vec3 & b, const Vec3 & c, const int & level)
+
+Vec3 ofApp::SGasket(const Vec3 & a, const Vec3 & b, const Vec3 & c, const int & level)
+{
+
+	if (level == 0)
+	{
+		triangle(a, b, c);
+	}
+	else
+	{
+		Vec3 ab = mid.midpoint(a, b);
+		Vec3 bc = mid.midpoint(b, c);
+		Vec3 ca = mid.midpoint(c, a);
+
+		Va = SGasket(a, ab, ca, level - 1);
+		Vb = SGasket(ab, b, bc, level - 1);
+		Vc = SGasket(ca, bc, c, level - 1);
+	}
+
+	return (Va,Vb,Vc);
+}
+
+/*void ofApp::SGasket(const Vec3 & a, const Vec3 & b, const Vec3 & c, const int & level)
 {
 	if (level == 0)
 	{
@@ -139,4 +165,5 @@ void ofApp::SGasket(const Vec3 & a, const Vec3 & b, const Vec3 & c, const int & 
 		SGasket(ab,  b, bc, level - 1);
 		SGasket(ca, bc,  c, level - 1);
 	}
-}
+
+}*/

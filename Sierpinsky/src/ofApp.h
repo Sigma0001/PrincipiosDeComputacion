@@ -13,6 +13,8 @@ class ofApp : public ofBaseApp{
 		PuntoMedio line;
 		Vec3 mid;
 
+		Vec3 Va, Vb, Vc;
+
 		void setup();
 		void update();
 		void draw();
@@ -29,7 +31,11 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
-		void SGasket(const Vec3&a, const Vec3&b, const Vec3&c, const int& level);
+		//void SGasket(const Vec3&a, const Vec3&b, const Vec3&c, const int& level);
+
+		Vec3 SGasket(const Vec3&a, const Vec3&b, const Vec3&c, const int& level);
+
+		
 
 		ofVec2f cp;
 		float cX, cY;
