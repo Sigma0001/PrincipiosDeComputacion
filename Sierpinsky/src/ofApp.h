@@ -4,6 +4,7 @@
 #include "PutPixel.h"
 #include "Vec3.h"
 #include <vector>
+#include "Matrix3.h"
 
 
 class ofApp : public ofBaseApp{
@@ -12,6 +13,7 @@ class ofApp : public ofBaseApp{
 		
 		PuntoMedio line;
 		Vec3 mid;
+		Matrix3 matrix;
 
 		std::vector<Vec3> vect;
 

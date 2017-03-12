@@ -2,11 +2,13 @@
 #include "PuntoMedio.h"
 #include "ofMain.h"
 #include "PutPixel.h"
+#include "Matrix3.h"
+#include <time.h>
 
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-	
+	time_t timer;
 
 	line.NewClear();
 
@@ -20,12 +22,12 @@ void ofApp::setup(){
 	level = 5;
 
 	SGasket(T1, T2, T3, level);
-
+	time(&timer);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+	
 
 }
 
@@ -35,7 +37,9 @@ void ofApp::draw(){
 	
 	for (int j = 0; j < vect.size(); j+=3)
 	{
-		triangle(vect[j], vect[j+1], vect[j+2]);
+		//triangle(vect[j], vect[j+1], vect[j+2]);
+		matrix.rotate((vect[j], vect[j + 1], vect[j + 2]) , 45);
+		
 	}
 	
  
