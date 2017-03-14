@@ -4,6 +4,9 @@
 #include "PutPixel.h"
 #include "Matrix3.h"
 #include <time.h>
+#include <iostream>
+
+using namespace std;
 
 
 //--------------------------------------------------------------
@@ -21,13 +24,29 @@ void ofApp::setup(){
 
 	level = 5;
 
+	ang = 360.f;
+
 	SGasket(T1, T2, T3, level);
 	time(&timer);
+
+
+
+	
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
 	
+	for (int j = 0; j < vect.size(); j += 3)
+	{
+		//triangle(vect[j], vect[j + 1], vect[j + 2]);
+		//RotVec.push_back(matrix.rotate((vect[j], vect[j + 1], vect[j + 2]), 60));
+
+		RotVec.push_back(matrix.rotate((vect[j]), ang));
+		RotVec.push_back(matrix.rotate((vect[j + 1]), ang));
+		RotVec.push_back(matrix.rotate((vect[j + 2]), ang));
+
+	}
 
 }
 
@@ -35,11 +54,18 @@ void ofApp::update(){
 void ofApp::draw(){
 
 	
-	for (int j = 0; j < vect.size(); j+=3)
+	/*for (int j = 0; j < vect.size(); j+=3)
 	{
-		//triangle(vect[j], vect[j+1], vect[j+2]);
-		matrix.rotate((vect[j], vect[j + 1], vect[j + 2]) , 45);
+		triangle(vect[j], vect[j+1], vect[j+2]);
+	//	matrix.rotate((vect[j], vect[j + 1], vect[j + 2]) , 45);
 		
+	}*/
+
+	for (int k = 0; k < RotVec.size(); k += 3)
+	{
+		triangle(RotVec[k], RotVec[k + 1], RotVec[k + 2]);
+		//	matrix.rotate((vect[j], vect[j + 1], vect[j + 2]) , 45);
+
 	}
 	
  

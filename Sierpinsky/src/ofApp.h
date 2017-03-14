@@ -16,6 +16,8 @@ class ofApp : public ofBaseApp{
 		Matrix3 matrix;
 
 		std::vector<Vec3> vect;
+		std::vector<Vec3> RotVec;
+
 
 		void setup();
 		void update();
@@ -36,7 +38,7 @@ class ofApp : public ofBaseApp{
 		void SGasket(const Vec3&a, const Vec3&b, const Vec3&c, const int& level);
 
 		ofVec2f cp;
-		float cX, cY;
+		float cX, cY,ang;
 		Vec3 T1,T2,T3;
 		int level;
 		void moveTo(const int x, const int y);

@@ -25,11 +25,11 @@ Vec3 & Matrix3::rotate( Vec3& v,const float angle)
 {
 	Vec3 MatR;
 
-	MatR.x = ((cos(angle)*v.x) + (sin(angle)*v.y) + (0.0f)*v.z);
-	MatR.y = ((-sin(angle)*v.x) + (cos(angle)*v.y) + (0.0f)*v.z);
-	MatR.z = (((0.0f)*v.x) + ((0.0f)*v.y) + (0.0f)*v.z);
+	MatR.x = ((v.x*cos(angle)) - (v.y*sin(angle)));
+	MatR.y = ((v.x*sin(angle)) + (v.y*cos(angle)));
+	MatR.z = 1.0f;
 
-	return MatR;
+	return Vec3(MatR);
 }
 
 Matrix3 Matrix3::Identity()
