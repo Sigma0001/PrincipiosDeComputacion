@@ -8,7 +8,7 @@ public:
 
 	Vec3();
 
-	//Vec3 & operator+ (const Vec3 & rh);
+	Vec3 & operator+ (const Vec3 & v);
 
 	Vec3 midpoint(const Vec3& p0, const Vec3& p1);
 

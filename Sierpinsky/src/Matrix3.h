@@ -11,10 +11,10 @@ public:
 	Matrix3(const float val[3][3]);
 	Vec3& operator* (const Vec3& v);
 
-	Vec3& rotate(Vec3& v,const float angle);
+	static Matrix3 rotate(const float a);
 	
 
 	static Matrix3 Identity();
 
-	
+	static Matrix3 Translate(const Vec3 pos);
 };

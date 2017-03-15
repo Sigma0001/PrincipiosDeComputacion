@@ -3,7 +3,7 @@
 void PuntoMedio::NewClear()
 {
 
-	pixel._img.allocate(1024, 768, ofImageType::OF_IMAGE_COLOR_ALPHA);
+//	pixel._img.allocate(1024, 768, ofImageType::OF_IMAGE_COLOR_ALPHA);
 
 	pixel.clear(ofColor::black);
 }

@@ -11,4 +11,6 @@ public:
 	ofImage _img;
 	void FASTputpixel(const int& x, const int& y, const ofColor& color);
 
+
+	 PutPixel(){_img.allocate(1024, 768, ofImageType::OF_IMAGE_COLOR_ALPHA); }
 };

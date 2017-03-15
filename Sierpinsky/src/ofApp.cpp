@@ -3,7 +3,6 @@
 #include "ofMain.h"
 #include "PutPixel.h"
 #include "Matrix3.h"
-#include <time.h>
 #include <iostream>
 
 using namespace std;
@@ -11,64 +10,45 @@ using namespace std;
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-	time_t timer;
 
 	line.NewClear();
 
-	cX = ofGetScreenWidth();
-	cY = ofGetScreenHeight();
+	cX = 1024/2;
+	cY = 768/2;
 
-	T1 = { 200.0f , 650.0f , 0.0f };
-	T2 = { 800.0f , 650.0f , 0.0f };
-	T3 = { 500.0f , 100.0f , 0.0f };
+	T1 = {-86.6f+512.0f,50.0f+384.0f,0.0f};
+	T2 = {86.6f + 512.0f,50.0f + 384.0f,0.0f };
+	T3 = {512.0f,-100.0f+384.0f,0.0f};
+
+	C = {cX,-cY,0.0f};
+	mC = { -cX,cY,0.0f };
 
 	level = 5;
 
-	ang = 360.f;
-
-	SGasket(T1, T2, T3, level);
-	time(&timer);
-
-
-
-	
+	SGasket(T1,T2,T3,level);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-	
-	for (int j = 0; j < vect.size(); j += 3)
-	{
-		//triangle(vect[j], vect[j + 1], vect[j + 2]);
-		//RotVec.push_back(matrix.rotate((vect[j], vect[j + 1], vect[j + 2]), 60));
 
-		RotVec.push_back(matrix.rotate((vect[j]), ang));
-		RotVec.push_back(matrix.rotate((vect[j + 1]), ang));
-		RotVec.push_back(matrix.rotate((vect[j + 2]), ang));
+		Matrix3 m1;
 
-	}
+		m1 = Matrix3::rotate(60);
 
+		for (int i = 0; i < vect.size(); ++i)
+		{
+			Vec3 v = m1 * vect[i];
+			rot.push_back(v);
+		}		
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
 
-	
-	/*for (int j = 0; j < vect.size(); j+=3)
-	{
-		triangle(vect[j], vect[j+1], vect[j+2]);
-	//	matrix.rotate((vect[j], vect[j + 1], vect[j + 2]) , 45);
-		
-	}*/
-
-	for (int k = 0; k < RotVec.size(); k += 3)
-	{
-		triangle(RotVec[k], RotVec[k + 1], RotVec[k + 2]);
-		//	matrix.rotate((vect[j], vect[j + 1], vect[j + 2]) , 45);
-
-	}
-	
- 
+		for (int j = 0; j < rot.size(); j += 3)
+		{
+			triangle(rot[j], rot[j + 1], rot[j + 2]);
+		}
 }
 
 //--------------------------------------------------------------
