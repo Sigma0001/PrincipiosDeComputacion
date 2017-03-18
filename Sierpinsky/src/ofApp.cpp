@@ -20,10 +20,13 @@ void ofApp::setup(){
 	T2 = {86.6f + 512.0f,50.0f + 384.0f,0.0f };
 	T3 = {512.0f,-100.0f+384.0f,0.0f};
 
-	C = {cX,-cY,0.0f};
-	mC = { -cX,cY,0.0f };
+	Ce = { 0.0f,0.0f,0.0f };
+	C = {cX,cY,0.0f};
+	mC = { -cX,-cY,0.0f };
 
 	level = 5;
+
+	ang = 45.0f;
 
 	SGasket(T1,T2,T3,level);
 }
@@ -32,14 +35,21 @@ void ofApp::setup(){
 void ofApp::update(){
 
 		Matrix3 m1;
-
-		m1 = Matrix3::rotate(60);
+		Matrix3 m2;
+		Matrix3 m3;
+		
+		m1 = Matrix3::centro();
+		m2 = Matrix3::mult(Matrix3::rotate(ang++),m1);
+		m3 = Matrix3::mult(Matrix3::Translate(C),m2);
 
 		for (int i = 0; i < vect.size(); ++i)
 		{
-			Vec3 v = m1 * vect[i];
+			
+			Vec3 v = m3 * vect[i];
 			rot.push_back(v);
-		}		
+		}	
+
+		
 }
 
 //--------------------------------------------------------------

@@ -38,8 +38,8 @@ class ofApp : public ofBaseApp{
 		void SGasket(const Vec3&a, const Vec3&b, const Vec3&c, const int& level);
 
 		ofVec2f cp;
-		float cX, cY;
-		Vec3 T1,T2,T3,C,mC;
+		float cX, cY, ang;
+		Vec3 T1,T2,T3,C,mC, Ce;
 		int level;
 		void moveTo(const int x, const int y);
 		void lineTo(const int x, const int y);
