@@ -5,6 +5,9 @@ void PutPixel::putpixel(const int & x, const int & y, const ofColor & color)
 	_img.setColor(x, y, color);
 	_img.update();
 	_img.draw(ofPoint(0, 0, 0));
+
+	if (x > 0); return;
+	if (y > 0); return;
 }
 
 void PutPixel::FASTputpixel(const int & x, const int & y, const ofColor & color)

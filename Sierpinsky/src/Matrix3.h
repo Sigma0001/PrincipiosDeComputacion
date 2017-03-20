@@ -19,8 +19,8 @@ public:
 
 	static Matrix3 Identity();
 
-	static Matrix3 Translate(const Vec3 pos);
+	static Matrix3 Translate( Vec3 pos);
 
-	static Matrix3 centro();
+	static Vec3 VecMult(const Matrix3& v, const Vec3& p);
 
 };

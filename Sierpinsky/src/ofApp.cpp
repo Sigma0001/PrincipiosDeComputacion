@@ -13,16 +13,16 @@ void ofApp::setup(){
 
 	line.NewClear();
 
-	cX = 1024/2;
-	cY = 768/2;
+	cX = 512.0f;
+	cY = 384.0f;
 
 	T1 = {-86.6f+512.0f,50.0f+384.0f,0.0f};
 	T2 = {86.6f + 512.0f,50.0f + 384.0f,0.0f };
 	T3 = {512.0f,-100.0f+384.0f,0.0f};
 
-	Ce = { 0.0f,0.0f,0.0f };
-	C = {cX,cY,0.0f};
-	mC = { -cX,-cY,0.0f };
+
+	C = { 512.0f,384.0f,1.0f};
+	mC = { -512.0f,-384.0f,0.0f };
 
 	level = 5;
 
@@ -33,31 +33,30 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+	
 		Matrix3 m1;
-		Matrix3 m2;
-		Matrix3 m3;
+	
+		m1 = Matrix3::Translate(mC);
+		m1 = Matrix3::mult(Matrix3::rotate(ang++), m1);
+		m1 = Matrix3::mult(Matrix3::Translate(C), m1);
 		
-		m1 = Matrix3::centro();
-		m2 = Matrix3::mult(Matrix3::rotate(ang++),m1);
-		m3 = Matrix3::mult(Matrix3::Translate(C),m2);
-
 		for (int i = 0; i < vect.size(); ++i)
 		{
-			
-			Vec3 v = m3 * vect[i];
+			//Vec3 v = m1 * vect[i];
+			Vec3 v = Matrix3::VecMult(m1, vect[i]);
+
 			rot.push_back(v);
 		}	
 
-		
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-
+	
 		for (int j = 0; j < rot.size(); j += 3)
 		{
 			triangle(rot[j], rot[j + 1], rot[j + 2]);
+			
 		}
 }
 
