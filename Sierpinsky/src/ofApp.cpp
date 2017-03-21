@@ -21,8 +21,8 @@ void ofApp::setup(){
 	T3 = {512.0f,-100.0f+384.0f,0.0f};
 
 
-	C = { 512.0f,-384.0f,0.0f};
-	mC = { -512.0f,384.0f,0.0f };
+	C = { 512.0f,384.0f,0.0f};
+	mC = { -512.0f,-384.0f,0.0f };
 
 	level = 5;
 
@@ -35,15 +35,10 @@ void ofApp::setup(){
 void ofApp::update(){
 	
 		Matrix3 m1;
-		Matrix3 m2;
-		Matrix3 m3;
 
-		m2 = Matrix3::rotate(ang++);
-		m3 = Matrix3::Translate(mC);
-	
-		m1 = Matrix3::Translate(C);
-		m1 = Matrix3::mult(m2, m1);
-		m1 = Matrix3::mult(m3, m1);
+		m1 = Matrix3::Translate(mC);
+		m1 = Matrix3::mult(Matrix3::rotate(ang++), m1);
+		m1 = Matrix3::mult(Matrix3::Translate(C), m1);
 		
 		for (int i = 0; i < vect.size(); ++i)
 		{
