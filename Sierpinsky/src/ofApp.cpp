@@ -24,7 +24,9 @@ void ofApp::setup(){
 	C = { 512.0f,384.0f,0.0f};
 	mC = { -512.0f,-384.0f,0.0f };
 
-	level = 5;
+	X1 = { 1.0f,0.0f,0.0f };
+
+	level = 0;
 
 	ang = 60.0f;
 
@@ -35,10 +37,16 @@ void ofApp::setup(){
 void ofApp::update(){
 	
 		Matrix3 m1;
+		Matrix3 m2;
+		Matrix3 m3;
 
-		m1 = Matrix3::Translate(mC);
-		m1 = Matrix3::mult(Matrix3::rotate(ang++), m1);
-		m1 = Matrix3::mult(Matrix3::Translate(C), m1);
+		//m1 = Matrix3::Translate(mC);
+		//m1 = Matrix3::mult(Matrix3::rotate(ang++), m1);
+		//m1 = Matrix3::mult(Matrix3::Translate(C), m1);
+
+		m1 = Matrix3::Identity();
+		//m2 = Matrix3::Translate(X1);
+		//m3 = Matrix3::mult(m1, m3);
 		
 		for (int i = 0; i < vect.size(); ++i)
 		{
@@ -57,6 +65,9 @@ void ofApp::draw(){
 		{
 			triangle(rot[j], rot[j + 1], rot[j + 2]);
 		}
+
+		ofDrawLine(0,0,1024,768);
+		ofDrawLine(1024, 0, 0, 768);
 }
 
 //--------------------------------------------------------------

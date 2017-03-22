@@ -39,7 +39,7 @@ class ofApp : public ofBaseApp{
 
 		ofVec2f cp;
 		float cX, cY, ang;
-		Vec3 T1,T2,T3,C,mC;
+		Vec3 T1,T2,T3,C,mC, X1;
 		int level;
 		void moveTo(const int x, const int y);
 		void lineTo(const int x, const int y);
