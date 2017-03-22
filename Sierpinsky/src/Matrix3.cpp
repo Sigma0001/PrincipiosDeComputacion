@@ -49,22 +49,6 @@ Matrix3 Matrix3::mult(const Matrix3 & v, const Matrix3 & p)
 	t.m[2][0] =((v.m[2][0] * p.m[0][0]) + (v.m[2][1] * p.m[1][0]) + (v.m[2][2] * p.m[2][0]));
 	t.m[2][1] =((v.m[2][0] * p.m[0][1]) + (v.m[2][1] * p.m[1][1]) + (v.m[2][2] * p.m[2][1]));
 	t.m[2][2] =((v.m[2][0] * p.m[0][2]) + (v.m[2][1] * p.m[1][2]) + (v.m[2][2] * p.m[2][2]));
-	
-	/*
-	for (int i = 0; i < 3; i++)
-	{
-		for (int j = 0; j < 3; j++)
-		{
-			t.m[i][j] = 0;
-			for (int k = 0; k < 3; k++)
-			{
-				t.m[i][j] += v.m[i][k] * p.m[k][j];
-				
-			}
-			
-		}
-		
-	}*/
 
 	return t;
 }

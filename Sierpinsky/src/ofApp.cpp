@@ -16,9 +16,9 @@ void ofApp::setup(){
 	cX = 512.0f;
 	cY = 384.0f;
 
-	T1 = {-86.6f+512.0f,50.0f+384.0f,0.0f};
-	T2 = {86.6f + 512.0f,50.0f + 384.0f,0.0f };
-	T3 = {512.0f,-100.0f+384.0f,0.0f};
+	T1 = {-86.6f+512.0f,50.0f+384.0f,1.0f};
+	T2 = {86.6f + 512.0f,50.0f + 384.0f,1.0f };
+	T3 = {512.0f,-100.0f+384.0f,1.0f};
 
 
 	C = { 512.0f,384.0f,0.0f};
@@ -26,7 +26,7 @@ void ofApp::setup(){
 
 	X1 = { 1.0f,0.0f,0.0f };
 
-	level = 0;
+	level = 5;
 
 	ang = 60.0f;
 
@@ -40,11 +40,11 @@ void ofApp::update(){
 		Matrix3 m2;
 		Matrix3 m3;
 
-		//m1 = Matrix3::Translate(mC);
-		//m1 = Matrix3::mult(Matrix3::rotate(ang++), m1);
-		//m1 = Matrix3::mult(Matrix3::Translate(C), m1);
+		m1 = Matrix3::Translate(mC);
+		m1 = Matrix3::mult(Matrix3::rotate(ang++), m1);
+		m1 = Matrix3::mult(Matrix3::Translate(C), m1);
 
-		m1 = Matrix3::Identity();
+		//m1 = Matrix3::Identity();
 		//m2 = Matrix3::Translate(X1);
 		//m3 = Matrix3::mult(m1, m3);
 		
@@ -66,8 +66,8 @@ void ofApp::draw(){
 			triangle(rot[j], rot[j + 1], rot[j + 2]);
 		}
 
-		ofDrawLine(0,0,1024,768);
-		ofDrawLine(1024, 0, 0, 768);
+		//ofDrawLine(0,0,1024,768);
+		//ofDrawLine(1024, 0, 0, 768);
 }
 
 //--------------------------------------------------------------
